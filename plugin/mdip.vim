@@ -197,6 +197,15 @@ function! g:EmptyPasteImage(relpath)
     execute "normal! i" . a:relpath 
 endfunction
 
+function! g:AsciidocPasteImage(relpath)
+        execute "normal! iimage::" . a:relpath . "[]"
+        "execute "normal! iimage::" . a:relpath . "[" . g:mdip_tmpname[0:0]
+        "let ipos = getcurpos()
+        "execute "normal! a"  g:mdip_tmpname[1:] . "]"
+        "call setpos('.', ipos)
+        "execute "normal! vt]\<C-g>"
+endfunction
+
 let g:PasteImageFunction = 'g:MarkdownPasteImage'
 
 function! mdip#MarkdownClipboardImage()
